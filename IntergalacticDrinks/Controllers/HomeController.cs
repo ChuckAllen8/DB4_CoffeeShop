@@ -65,7 +65,8 @@ namespace IntergalacticDrinks.Controllers
 
         public IActionResult Register(string First_Name, string Last_Name, string Username, string Password, string Re_Enter_Password, string Email, string Home_Planet, string Current_Captain)
         {
-            if(HttpContext.Request.Method == "GET")
+            ViewData["DynamicClass"] = "register";
+            if (HttpContext.Request.Method == "GET")
             {
                 return View(Model(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain));
             }

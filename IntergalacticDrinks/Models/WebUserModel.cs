@@ -31,7 +31,7 @@ namespace IntergalacticDrinks.Models
 
             fieldErrorMessage = new List<string>()
             {
-                "Cannot be blank", "Cannot be blank", "Cannot be blank", "Minimum 8 characters, 1 upper-case, 1 lower-case, 1 number", "Must match password", "Must be a valid email", "Cannot be blank", "Cannot be blank"
+                "Cannot be blank", "Cannot be blank", "Cannot be blank", "Characters: 8, 1 upper, 1 lower, 1 number", "Must match password", "Must be a valid email", "Cannot be blank", "Cannot be blank"
             };
 
             fieldError = new List<bool>()

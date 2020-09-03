@@ -88,6 +88,28 @@ body {
 .float-container {
     display: inline;
     float: left;
+    padding: 10px 10px 10px 10px;
+}
+
+.curved-border {
+    border: solid;
+    border-width: thin;
+    border-radius: 15px;
+}
+
+.curved-border:focus {
+    outline: none;
+    border-width: medium;
+}
+
+.curved-border::selection {
+    outline: none;
+    border-width: medium;
+}
+
+
+.text-indent {
+    text-indent: 5px;
 }
 
 .form-right-aligned {
@@ -104,17 +126,16 @@ body {
 .half-screen-right form {
     display: inline-block;
 }
-.half-screen-right form {
-    display: inline-block;
-}
 
 .left-padded {
     padding-left: 15%;
+    margin: 0 auto auto auto;
 }
 
 .error-message {
     color: red;
-    width: 150px;
+    max-width: 300px;
+    top: 0px;
 }
 
 .hidden-section {
@@ -128,4 +149,11 @@ body {
 
 .hidden-section:hover {
     color: black;
+}
+
+.register {
+    color: black;
+    text-decoration: double;
+    font-size: larger;
+    font-weight: bold;
 }

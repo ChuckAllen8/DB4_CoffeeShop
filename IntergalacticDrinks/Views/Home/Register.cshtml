@@ -15,28 +15,26 @@
 
 <div>
     <div class="float-container">
-        <h1 class="text-center">Register</h1>
+        <!--h1> class="text-center">Register</h1-->
         <div class="form-right-aligned" style="margin-left:0; margin-right: auto">
             <form action="/Home/RegistrationCompleted" method="post">
                 @for (int index = 0; index < Model.fields.Count; index++)
                 {
+                    @if (Model.fieldError[index])
+                    {
+                        <label class="error-message" for="@Model.fields[index]">*@Model.fieldErrorMessage[index]</label>
+                    }
                     <div class="form-group">
                         <label for="@Model.fields[index]">@SplitWords(Model.fields[index])</label>
-                        <input type="@Model.types[index]" id="@Model.fields[index]" name="@Model.fields[index]" value="@Model.values[index]" required />
+                        <input class="curved-border text-indent" type="@Model.types[index]" id="@Model.fields[index]" name="@Model.fields[index]" value="@Model.values[index]" required />
 
-                        @if (Model.fieldError[index])
-                        {
-                            <label class="error-message" for="@Model.fields[index]">*@Model.fieldErrorMessage[index]</label>
-                        }
-                        else
-                        {
-                            <label class="error-message" for="@Model.fields[index]"> </label>
-                        }
+
 
                     </div>
+
                 }
-                <input type="submit" value="Complete Registration" />
-                <label class="error-message"> </label>
+                <input class="btn btn-dark" type="submit" value="Complete Registration" />
+                <!--label class="error-message"> </!--label-->
             </form>
         </div>
     </div>

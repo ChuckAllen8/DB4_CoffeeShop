@@ -1,0 +1,33 @@
+﻿@model WebUserModel
+@{
+    ViewData["Title"] = "Registration Completed";
+    string blur(string original)
+    {
+        return new string('*', original.Length);
+    }
+}
+
+
+<div>
+    <h1 class="text-center">Thank you!</h1>
+    <div class="container">
+        <div class="container hidden-section float-right">
+            @Model.values[WebUserModel.FIRST_NAME] @Model.values[WebUserModel.LAST_NAME]<br />
+            Username: @Model.values[WebUserModel.USERNAME]<br />
+            Email: @Model.values[WebUserModel.EMAIL]<br />
+            Password: @blur(Model.values[WebUserModel.PASSWORD])<br />
+            Planet of Origin: @Model.values[WebUserModel.HOME_PLANET]<br />
+            Current Captain: @Model.values[WebUserModel.CURRENT_CAPTAIN]<br />
+        </div>
+        <div>
+            <p>
+                An email will be sent to you shortly containing your registration information, hidden to the right. You can hover over it to see it here if you cannot wait for the email.
+            </p>
+            <p>
+                Now that you have registered for Intergalacic Drinks you can use our Nutrimatic Drink Dispensers to create any kind of drink* you can think of, quite literally. From Coffee, to Tea, to the Pangalactic Gargle Blaster.
+            </p>
+        </div>
+
+    </div>
+</div>
+<div class="footer-dynamic">*Taste may not be quite exactly like you remember, if the drink lets you remember what it tastes like.</div>

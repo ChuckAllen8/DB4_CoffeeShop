@@ -1,0 +1,131 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.footer-dynamic {
+    bottom: 60px;
+    position: fixed;
+    white-space: pre-line;
+    width: 80%;
+}
+
+.half-of-screen {
+    display: flex;
+}
+
+.half-of-screen div {
+    flex: 50%;
+}
+
+.float-container {
+    display: inline;
+    float: left;
+}
+
+.form-right-aligned {
+    position: relative;
+    width: auto;
+    text-align: right;
+}
+
+.form-left-aligned {
+    width: auto;
+    text-align: left;
+}
+
+.half-screen-right form {
+    display: inline-block;
+}
+.half-screen-right form {
+    display: inline-block;
+}
+
+.left-padded {
+    padding-left: 15%;
+}
+
+.error-message {
+    color: red;
+    width: 150px;
+}
+
+.hidden-section {
+    width: auto;
+    border: solid;
+    color: white;
+    border-color: black;
+    border-radius: 15px;
+    border-width: thin;
+}
+
+.hidden-section:hover {
+    color: black;
+}

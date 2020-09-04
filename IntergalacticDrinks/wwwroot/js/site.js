@@ -6,7 +6,7 @@
 
 var canvas;
 var ctx;
-var desiredInterval = 100;
+var desiredInterval;
 var height;
 var width;
 var shipImg;
@@ -30,10 +30,15 @@ function updateBackground() {
 
 function updateAnimation() {
     //todo: update locations and draw
-    if (Math.floor(Math.random() * 10) < 2) {
-        shipDirectional = -1 * shipDirectional;
+    if (shipY > (height - shipImg.height)) {
+        shipY = shipY - 3;
     }
-    shipX = shipX + shipDirectional;
+    else {
+        if (Math.floor(Math.random() * 10) < 1) {
+            shipDirectional = -1 * shipDirectional;
+        }
+        shipX = shipX + shipDirectional;
+    }
     ctx.drawImage(shipImg, shipX, shipY, shipImg.width, shipImg.height);
 }
 
@@ -41,12 +46,12 @@ function prepareAnimation() {
     shipImg = document.getElementById("shipImage");;
     canvas = document.getElementById("background");
     ctx = canvas.getContext("2d");
-    desiredInterval = 100;
+    desiredInterval = 50;
     height = Math.max($(document).height(), $(window).height());
     width = Math.max($(document).width(), $(window).width());
     shipX = ((width / 2) - (shipImg.width / 2));
-    shipY = (height - shipImg.height);
-    shipDirectional = 3;
+    shipY = height - 15;
+    shipDirectional = 2;
 }
 
 //occurs when the document is ready, calls setInterval to make the updates happen every so often

@@ -24,14 +24,14 @@
                 An email will be sent to you shortly containing your registration information, hidden to the right. You can hover over it to see it here if you cannot wait for the email.
             </p>
             <p>
-                Now that you have registered for Intergalacic Drinks you can use our Nutrimatic Drink Dispensers to create any kind of drink* you can think of, quite literally. From Coffee, to Tea, to the Pangalactic Gargle Blaster.
+                Now that you have registered for Intergalacic Drinks we are pleased to offer you access to our shop where you can order a drink made from our Nutrimatic Drinks Dispensers, and if you can't stop be we can deliver it to you.
             </p>
             <form action="/Shop/" method="post">
                 @for (int index = 0; index < Model.fields.Count; index++)
                 {
                     <input style="display: none" type="@Model.types[index]" id="@Model.fields[index]" name="@Model.fields[index]" value="@Model.values[index]" required />
                 }
-                <input class="btn btn-dark" type="submit" value="Go to Shop" />
+                <input class="btn btn-dark" type="submit" value="Shop" />
             </form>
         </div>
 

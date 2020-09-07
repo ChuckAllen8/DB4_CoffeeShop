@@ -6,29 +6,32 @@
 <h1>Drink Selection</h1>
 
 <div class="half-of-screen">
-    <form action="/Shop/Summary" method="post" onsubmit="return checkForm(this)">
+    <form autocomplete="off" action="/Shop/Summary" method="post" onsubmit="return checkForm(this)">
 
-        <div class="d-inline-block selection-group">
-            <input list="drinks" name="drinks" required>
+        <div class="d-inline-block selection-group form-right-aligned">
+            <div>
+                <label for="drinks">Drink</label>
 
-            <datalist id="drinks">
-                <option value="Pangalactic Gargle Blaster" />
-                <option value="Tea" />
-                <option value="Mocha Late" />
-                <option value="42 Espresso" />
-                <option value="The Zaphod" />
-            </datalist>
-
-            <input list="sizes" name="sizes" required>
-
-            <datalist id="sizes">
-                <option value="Small" />
-                <option value="Medium" />
-                <option value="Large" />
-            </datalist>
-            <br />
-            <input type="checkbox" id="whippedCream" name="whippedCream" value="whippedCream">
+                <select id="drinks" name="drinks" required>
+                    <option value="Pangalactic Gargle Blaster">Pangalactic Gargle Blaster</option>
+                    <option value="Tea">Tea</option>
+                    <option value="Mocha Late">Mocha Late</option>
+                    <option value="42 Espresso">42 Espresso</option>
+                    <option value="The Zaphod">The Zaphod</option>
+                </select>
+            </div>
+            <div>
+                <label for="sizes">Size</label>
+                <select name="sizes" required >
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    </select>
+                <br />
+            </div>
             <label for="whippedCream">Whipped Topping</label>
+            <input type="checkbox" id="whippedCream" name="whippedCream" value="whippedCream">
+
 
         </div>
         
@@ -43,7 +46,7 @@
                 <div>
                     <div id="pickup" class="form-right-aligned">
                         <label for="hours">Time:</label>
-                        <input id="time" name="time" type="time" value="12:00" step="60" min="06:00" max="16:00" />
+                        <input id="time" name="time" type="time" value="12:00" step="60" min="06:00" max="20:00" />
                     </div>
                     <div id="delivery" style="display: none" class="form-right-aligned">
                         <label for="address1">Address Line 1:</label><br />
@@ -55,8 +58,60 @@
                         <label for="addressCity">City:</label><br />
                         <input id="addressCity" name="addressCity" type="text" value="" /><br />
 
-                        <label for="addressState">State:</label><br />
-                        <input id="addressState" name="addressState" type="text" value="" /><br />
+                        <label for="addressState">State:</label>
+
+                        <select id="addressState" name="addressState">
+                            <option value="AL">AL</option>
+                            <option value="AK">AK</option>
+                            <option value="AZ">AZ</option>
+                            <option value="AZ">AZ</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="IA">IA</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="ME">ME</option>
+                            <option value="MD">MD</option>
+                            <option value="MA">MA</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MS">MS</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NE">NE</option>
+                            <option value="NV">NV</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NY">NY</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VT">VT</option>
+                            <option value="VA">VA</option>
+                            <option value="WA">WA</option>
+                            <option value="WV">WV</option>
+                            <option value="WI">WI</option>
+                            <option value="WY">WY</option>
+                        </select><br />
 
                         <label for="addressZip">Zip/Postal Code:</label><br />
                         <input id="addressZip" name="addressZip" type="text" value="" /><br />

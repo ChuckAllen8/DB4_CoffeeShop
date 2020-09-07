@@ -45,6 +45,23 @@ namespace IntergalacticDrinks.Models
             }
         }
 
+        public string EstimatedDelivery
+        {
+            get
+            {
+                return (DateTime.Now.AddMinutes(25)).ToString();
+            }
+        }
+
+        public string PickupTime
+        {
+            get
+            {
+                DateTime now = DateTime.Now;
+                return (new DateTime(now.Year, now.Month, now.Day, int.Parse(Time.Split(":")[0]), int.Parse(Time.Split(":")[1]), 0)).ToString();
+            }
+        }
+
         public ShopModel(LoggedInUserModel user)
         {
             OrderID = new Random().Next(10000, 100000);

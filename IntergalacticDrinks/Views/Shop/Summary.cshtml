@@ -1,49 +1,38 @@
 ﻿@model ShopModel
 @{
     ViewData["Title"] = "Summary";
+    var whipped = Model.WhippedTopping ? "with Whipped Topping" : "without Whipped Topping";
 }
 
-<h1>Order Details</h1>
+<h1>Order Number: @Model.OrderID</h1>
 
 <div>
-    <h1 class="text-center">Thank you!</h1>
     <div class="container">
-        <div>
+        <div class="selection-group">
             <p>
                 Order for: @Model.Shopper.values[LoggedInUserModel.FIRST_NAME] @Model.Shopper.values[LoggedInUserModel.LAST_NAME]<br />
                 Emailing* receipt to: @Model.Shopper.values[LoggedInUserModel.EMAIL]<br />
             </p>
             <p>
-                @Model.Size @Model.Drink <br />
-                @if (Model.WhippedTopping)
-                {
-                    <div>
-                        With Whipped Topping.
-                    </div>
-                }
-                else
-                {
-                    <div>
-                        Without Whipped Topping.
-                    </div>
-                }
+                @Model.Size @Model.Drink @whipped
 
                 @if (Model.Pickup == "pickup")
                 {
                     <div>
-                        Pickup scheduled for: @Model.Time
+                        Pickup scheduled for: @Model.PickupTime
                     </div>
                 }
                 else
                 {
                     <div>
                         Delivering to: <br />
-                        @Html.Raw(Model.FullAddress)
+                        @Html.Raw(Model.FullAddress) <br />
+                        Estimated delivery time: @Model.EstimatedDelivery
                     </div>
                 }
             </p>
         </div>
-
     </div>
+    <h1 class="text-center">Thank you!</h1>
 </div>
 <div class="footer-dynamic">*May be delayed by the sub-etha net until the end of time.</div>

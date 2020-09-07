@@ -3,7 +3,9 @@
 
 // Write your JavaScript code.
 
-
+//
+//background code
+//
 var canvas;
 var ctx;
 var desiredInterval;
@@ -63,3 +65,66 @@ $(document).ready(function () {
         updateBackground();
     }, desiredInterval);
 });
+
+//
+//end background code
+//
+
+
+
+//
+//validation code
+//
+
+$(document).on("change", "input[name=delivery]", function () {
+    var test = $(this).val();
+    if (test === "pickup") {
+        $("#pickup").show();
+        $("#delivery").hide();
+    }
+    else {
+        $("#pickup").hide();
+        $("#delivery").show();
+    }
+});
+
+function checkForm(form) {
+    //validate time on pickup to be in the future, validate address otherwise
+    if (form.delivery.value === "pickup") {
+        var d = new Date();
+        var m = d.getMinutes();
+        var h = d.getHours();
+        if (h == '0') { h = 24 }
+        var currentTime = h + ":" + m;
+        if (form.time.value <= currentTime) {
+            alert("Time must be in the future");
+            return false;
+        }
+    }
+    else {
+        if (form.address1.value === "" || form.addressCity.value === "" || form.addressState.value === "" || form.addressZip.value === "") {
+            alert("Please enter a complete address")
+            return false;
+        }
+        var addressLine1 = form.address1.value.split(" ");
+        if (addressLine1.length < 2) {
+            alert("Address requires a street number and name")
+            return false;
+        }
+        if (isNaN(parseInt(addressLine1[0]))) {
+            alert("Address requires the street number first")
+            return false;
+        }
+
+        if (isNaN(parseInt(form.addressZip.value))) {
+            alert("Zip Code must be a valid number")
+            return false;
+        }
+    }
+
+    return true;
+}
+
+//
+//end validation code
+//

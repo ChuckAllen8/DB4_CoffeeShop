@@ -157,3 +157,19 @@ body {
     font-size: larger;
     font-weight: bold;
 }
+
+
+.selection-group {
+    padding: 15px 15px 15px 15px;
+    margin: 15px 15px 15px 15px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+    background-color: gray;
+    color: white;
+}
+
+.padded-in {
+    margin: 15px 15px 15px 15px;
+}

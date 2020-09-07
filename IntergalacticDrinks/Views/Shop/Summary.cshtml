@@ -1,0 +1,49 @@
+﻿@model ShopModel
+@{
+    ViewData["Title"] = "Summary";
+}
+
+<h1>Order Details</h1>
+
+<div>
+    <h1 class="text-center">Thank you!</h1>
+    <div class="container">
+        <div>
+            <p>
+                Order for: @Model.Shopper.values[LoggedInUserModel.FIRST_NAME] @Model.Shopper.values[LoggedInUserModel.LAST_NAME]<br />
+                Emailing* receipt to: @Model.Shopper.values[LoggedInUserModel.EMAIL]<br />
+            </p>
+            <p>
+                @Model.Size @Model.Drink <br />
+                @if (Model.WhippedTopping)
+                {
+                    <div>
+                        With Whipped Topping.
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        Without Whipped Topping.
+                    </div>
+                }
+
+                @if (Model.Pickup == "pickup")
+                {
+                    <div>
+                        Pickup scheduled for: @Model.Time
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        Delivering to: <br />
+                        @Html.Raw(Model.FullAddress)
+                    </div>
+                }
+            </p>
+        </div>
+
+    </div>
+</div>
+<div class="footer-dynamic">*May be delayed by the sub-etha net until the end of time.</div>

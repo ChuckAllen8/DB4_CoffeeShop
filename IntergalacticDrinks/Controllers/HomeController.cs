@@ -26,24 +26,24 @@ namespace IntergalacticDrinks.Controllers
             return View();
         }
 
-        private WebUserModel Model(string First_Name, string Last_Name, string Username, string Password, string Re_Enter_Password, string Email, string Home_Planet, string Current_Captain)
+        private RegisterUserModel CreateUser(string First_Name, string Last_Name, string Username, string Password, string Re_Enter_Password, string Email, string Home_Planet, string Current_Captain)
         {
-            WebUserModel m = new WebUserModel();
-            m.values[WebUserModel.FIRST_NAME] = First_Name;
-            m.values[WebUserModel.LAST_NAME] = Last_Name;
-            m.values[WebUserModel.USERNAME] = Username;
-            m.values[WebUserModel.PASSWORD] = Password;
-            m.values[WebUserModel.RE_ENTER_PASSWORD] = Re_Enter_Password;
-            m.values[WebUserModel.EMAIL] = Email;
-            m.values[WebUserModel.HOME_PLANET] = Home_Planet;
-            m.values[WebUserModel.CURRENT_CAPTAIN] = Current_Captain;
+            RegisterUserModel m = new RegisterUserModel();
+            m.values[RegisterUserModel.FIRST_NAME] = First_Name;
+            m.values[RegisterUserModel.LAST_NAME] = Last_Name;
+            m.values[RegisterUserModel.USERNAME] = Username;
+            m.values[RegisterUserModel.PASSWORD] = Password;
+            m.values[RegisterUserModel.RE_ENTER_PASSWORD] = Re_Enter_Password;
+            m.values[RegisterUserModel.EMAIL] = Email;
+            m.values[RegisterUserModel.HOME_PLANET] = Home_Planet;
+            m.values[RegisterUserModel.CURRENT_CAPTAIN] = Current_Captain;
 
             return m;
         }
 
-        private WebUserModel ModelErrors(string First_Name, string Last_Name, string Username, string Password, string Re_Enter_Password, string Email, string Home_Planet, string Current_Captain)
+        private RegisterUserModel ModelErrors(string First_Name, string Last_Name, string Username, string Password, string Re_Enter_Password, string Email, string Home_Planet, string Current_Captain)
         {
-            WebUserModel m = Model(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain);
+            RegisterUserModel m = CreateUser(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain);
             BadEntry(m);
             return m;
         }
@@ -68,7 +68,7 @@ namespace IntergalacticDrinks.Controllers
             ViewData["DynamicClass"] = "register";
             if (HttpContext.Request.Method == "GET")
             {
-                return View(Model(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain));
+                return View(CreateUser(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain));
             }
             else
             {
@@ -79,15 +79,15 @@ namespace IntergalacticDrinks.Controllers
         [HttpPost]
         public IActionResult RegistrationCompleted(string First_Name, string Last_Name, string Username, string Password, string Re_Enter_Password, string Email, string Home_Planet, string Current_Captain)
         {
-            if(BadEntry(Model(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain)))
+            if(BadEntry(CreateUser(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain)))
             {
                 return RedirectToActionPreserveMethod("Register", "Home");
             }
 
-            return View(Model(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain));
+            return View(CreateUser(First_Name, Last_Name, Username, Password, Re_Enter_Password, Email, Home_Planet, Current_Captain));
         }
 
-        private bool BadEntry(WebUserModel m)
+        private bool BadEntry(RegisterUserModel m)
         {
             for (int index = 0; index < m.fields.Count; index++)
             {

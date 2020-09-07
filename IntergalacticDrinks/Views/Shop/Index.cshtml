@@ -1,0 +1,75 @@
+﻿@model ShopModel
+@{
+    ViewData["Title"] = "Shop";
+}
+
+<h1>Drink Selection</h1>
+
+<div class="half-of-screen">
+    <form action="/Shop/Summary" method="post" onsubmit="return checkForm(this)">
+
+        <div class="d-inline-block selection-group">
+            <input list="drinks" name="drinks" required>
+
+            <datalist id="drinks">
+                <option value="Pangalactic Gargle Blaster" />
+                <option value="Tea" />
+                <option value="Mocha Late" />
+                <option value="42 Espresso" />
+                <option value="The Zaphod" />
+            </datalist>
+
+            <input list="sizes" name="sizes" required>
+
+            <datalist id="sizes">
+                <option value="Small" />
+                <option value="Medium" />
+                <option value="Large" />
+            </datalist>
+            <br />
+            <input type="checkbox" id="whippedCream" name="whippedCream" value="whippedCream">
+            <label for="whippedCream">Whipped Topping</label>
+
+        </div>
+        
+        <div class="selection-group">
+            <div class="half-of-screen">
+                <div>
+                    <input type="radio" name="delivery" value="pickup" checked required />
+                    <label for="pickup">Pick-up</label><br />
+                    <input type="radio" name="delivery" value="delivery" required />
+                    <label for="delivery">Delivery</label><br />
+                </div>
+                <div>
+                    <div id="pickup" class="form-right-aligned">
+                        <label for="hours">Time:</label>
+                        <input id="time" name="time" type="time" value="12:00" step="60" min="06:00" max="16:00" />
+                    </div>
+                    <div id="delivery" style="display: none" class="form-right-aligned">
+                        <label for="address1">Address Line 1:</label><br />
+                        <input id="address1" name="address1" type="text" value="" /><br />
+
+                        <label for="address2">Address Line 2:</label><br />
+                        <input id="address2" name="address2" type="text" value="" /><br />
+
+                        <label for="addressCity">City:</label><br />
+                        <input id="addressCity" name="addressCity" type="text" value="" /><br />
+
+                        <label for="addressState">State:</label><br />
+                        <input id="addressState" name="addressState" type="text" value="" /><br />
+
+                        <label for="addressZip">Zip/Postal Code:</label><br />
+                        <input id="addressZip" name="addressZip" type="text" value="" /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <input style="display: none" type="text" id="orderID" name="orderID" value="@Model.OrderID" />
+        @for (int index = 0; index < Model.Shopper.fields.Count; index++)
+        {
+            <input style="display: none" type="@Model.Shopper.types[index]" id="@Model.Shopper.fields[index]" name="@Model.Shopper.fields[index]" value="@Model.Shopper.values[index]" required />
+        }
+        <input class="btn btn-dark padded-in" type="submit" value="Submit Order" />
+    </form>
+</div>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace IntergalacticDrinks.Models
 {
-    public class WebUserModel
+    public class RegisterUserModel
     {
         public const int FIRST_NAME = 0;
         public const int LAST_NAME = 1;
@@ -22,7 +22,7 @@ namespace IntergalacticDrinks.Models
         public List<string> values;
         public List<string> types;
 
-        public WebUserModel()
+        public RegisterUserModel()
         {
             fields = new List<string>()
             {

@@ -94,7 +94,8 @@ function checkForm(form) {
         var d = new Date();
         var m = d.getMinutes();
         var h = d.getHours();
-        if (h == '0') { h = 24 }
+        if (h === '0') { h = 24 }
+        if (h < "10") { h = "0" + h}
         var currentTime = h + ":" + m;
         if (form.time.value <= currentTime) {
             alert("Time must be in the future");

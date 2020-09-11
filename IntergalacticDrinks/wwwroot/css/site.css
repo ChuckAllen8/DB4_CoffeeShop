@@ -169,6 +169,10 @@ body {
     margin: 15px 15px 15px 15px;
 }
 
+.padded-in-padded {
+    padding: 15px 15px 15px 15px;
+}
+
 .square-rounded-button {
     margin: 10px;
     color: white;
@@ -206,19 +210,6 @@ body {
     text-align: center;
 }
 
-.square-rounded-button:hover:before, .square-rounded-button:hover:after {
-    content: '';
-    position: absolute;
-    left: -1px;
-    top: -1px;
-    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000);
-    background-size: 400%;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    z-index: -1;
-    animation: steam 20s linear infinite;
-}
-
 @keyframes steam {
     0% {
         background-position: 0 0;
@@ -233,6 +224,50 @@ body {
     }
 }
 
-.square-rounded-button:after {
+.rgb-animated {
+    margin: 10px;
+    color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    background-color: gray;
+    position: relative;
+}
+
+.rgb-animated:hover {
+    color: white;
+}
+
+.rgb-animated-small:hover:before, .rgb-animated-small:hover:after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
+
+.rgb-animated-constant:before, .rgb-animated-constant:after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
+
+.rgb-animated-large:after {
+    filter: blur(30px);
+}
+
+.rgb-animated-small:after {
     filter: blur(10px);
 }

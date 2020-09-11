@@ -1,0 +1,10 @@
+﻿@model Product
+@{
+    ViewData["Title"] = Model.Name;
+    string price = $"{Model.Price:c}";
+}
+
+<h1 class="text-center">@Model.Name</h1>
+
+<p>@Model.LongDescription</p>
+<p>@price</p>

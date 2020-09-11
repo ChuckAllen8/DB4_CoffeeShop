@@ -1,0 +1,14 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1 class="text-center">Shop Categories</h1>
+
+<div class="float-container">
+    @foreach (Category c in Model)
+    {
+        <a class="square-rounded-button" asp-action="Category" asp-controller="Product" asp-route-CategoryId="@c.Id"><h3>@c.Name</h3></a>
+    }
+</div>
+

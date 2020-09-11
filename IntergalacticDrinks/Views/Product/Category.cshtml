@@ -1,0 +1,21 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = ViewData["Category"];
+    string FormatMoney(decimal price)
+    {
+        return $"{price:c}";
+    }
+}
+
+<div>
+    <h1 class="text-center">@ViewData["Category"]</h1>
+    <div class="float-container">
+        @foreach (Product p in Model)
+        {
+            <a class="square-rounded-button" title="@p.ShortDescription" asp-action="Detail" asp-controller="Product" asp-route-ProductId="@p.Id">
+                <h3>@p.Name</h3>
+                <p>@FormatMoney(p.Price)</p>
+            </a>
+        }
+    </div>
+</div>

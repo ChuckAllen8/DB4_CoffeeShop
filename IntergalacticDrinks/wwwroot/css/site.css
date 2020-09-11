@@ -7,11 +7,6 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -151,7 +146,7 @@ body {
     color: black;
 }
 
-.register {
+.active {
     color: black;
     text-decoration: double;
     font-size: larger;
@@ -172,4 +167,72 @@ body {
 
 .padded-in {
     margin: 15px 15px 15px 15px;
+}
+
+.square-rounded-button {
+    margin: 10px;
+    color: white;
+    width: 200px;
+    height: 130px;
+    border-style: solid;
+    text-decoration: none;
+    border-color: black;
+    border-width: thin;
+    background-color: gray;
+    position: relative;
+    vertical-align: central;
+}
+
+.square-rounded-button:hover {
+    color: white;
+}
+
+.square-rounded-button:link, .square-rounded-button:visited {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.square-rounded-button h3 {
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.square-rounded-button p {
+    height: 30px;
+    vertical-align: central;
+    text-align: center;
+}
+
+.square-rounded-button:hover:before, .square-rounded-button:hover:after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.square-rounded-button:after {
+    filter: blur(10px);
 }

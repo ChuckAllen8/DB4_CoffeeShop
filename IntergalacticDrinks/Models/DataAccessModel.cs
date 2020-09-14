@@ -22,17 +22,20 @@ namespace IntergalacticDrinks.Models
 
         public static List<Category> GetAllCategories()
         {
-            return ExecuteQuery<Category>("SELECT * FROM Category");
+            string query = "SELECT * FROM Category";
+            return ExecuteQuery<Category>(query);
         }
 
         public static string GetCategory(int CategoryId)
         {
-            return ExecuteQuery<Category>("SELECT * FROM Category WHERE Id = " + CategoryId)[0].Name;
+            string query = "SELECT * FROM Category WHERE Id = " + CategoryId;
+            return ExecuteQuery<Category>(query)[0].Name;
         }
 
         public static List<Product> GetProducts(int CategoryId)
         {
-            return ExecuteQuery<Product>("SELECT * FROM Product WHERE CategoryId = " + CategoryId);
+            string query = "SELECT * FROM Product WHERE CategoryId = " + CategoryId;
+            return ExecuteQuery<Product>(query);
         }
 
         public static Product GetProduct(int ProductId)

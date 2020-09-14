@@ -12,7 +12,7 @@
     <div class="float-container">
         @foreach (Product p in Model)
         {
-            <a class="square-rounded-button rgb-animated rgb-animated-small" title="@p.ShortDescription" asp-action="Detail" asp-controller="Product" asp-route-ProductId="@p.Id">
+            <a class="square-rounded-button rgb-animated rgb-animated-small" title="@p.ShortDescription" asp-action="Detail" asp-controller="Product" asp-route-id="@p.Id">
                 <h3>@p.Name</h3>
                 <p>@FormatMoney(p.Price)</p>
             </a>

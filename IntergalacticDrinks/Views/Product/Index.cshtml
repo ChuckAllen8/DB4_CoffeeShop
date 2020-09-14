@@ -8,7 +8,7 @@
 <div class="float-container">
     @foreach (Category c in Model)
     {
-        <a class="square-rounded-button rgb-animated rgb-animated-small" asp-action="Category" asp-controller="Product" asp-route-CategoryId="@c.Id"><h3>@c.Name</h3></a>
+        <a class="square-rounded-button rgb-animated rgb-animated-small" asp-action="Category" asp-controller="Product" asp-route-id="@c.Id"><h3>@c.Name</h3></a>
     }
 </div>
 

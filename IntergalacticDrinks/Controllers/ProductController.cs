@@ -15,15 +15,15 @@ namespace IntergalacticDrinks.Controllers
             return View(DataAccessModel.GetAllCategories());
         }
 
-        public IActionResult Category(int CategoryId)
+        public IActionResult Category(int id)
         {
-            ViewData["Category"] = DataAccessModel.GetCategory(CategoryId);
-            return View(DataAccessModel.GetProducts(CategoryId));
+            ViewData["Category"] = DataAccessModel.GetCategory(id);
+            return View(DataAccessModel.GetProducts(id));
         }
 
-        public IActionResult Detail(int ProductId)
+        public IActionResult Detail(int id)
         {
-            return View(DataAccessModel.GetProduct(ProductId));
+            return View(DataAccessModel.GetProduct(id));
         }
     }
 }

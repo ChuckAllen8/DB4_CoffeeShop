@@ -1,0 +1,35 @@
+﻿@model AdminControlModel
+@{
+    ViewData["Title"] = "Modify";
+}
+
+<h1>Modify</h1>
+<div class="half-of-screen">
+    <form class="form-right-aligned" method="post" action="/Admin/Modify">
+        <label for="id">Product Id</label>
+        <input type="number" id="id" name="id" readonly value="@Model.CurrentProduct?.Id" /><br />
+        <label for="name">Product Name</label>
+        <input type="text" id="name" name="name" value="@Model.CurrentProduct?.Name" required /><br />
+        <label for="shortDesc">Short Description</label>
+        <input type="text" id="shortDesc" name="shortDescription" value="@Model.CurrentProduct?.ShortDescription" required /><br />
+        <label for="fullDesc">Full Description</label>
+        <input type="text" id="fullDesc" name="longDescription" value="@Model.CurrentProduct?.LongDescription" required /><br />
+        <label for="price">Price</label>
+        <input class="money" type="number" data-type="currency" min="0.00" max="10000.00" id="price" step=".01" name="price" value="@Model.CurrentProduct?.Price" required /><br />
+        <label for="Category">Category</label>
+        <select name="Category" id="Category">
+            @foreach (Category C in Model.AvailableCategories)
+            {
+                if (!(Model.CurrentProduct is null) && C.Id == Model.CurrentProduct?.CategoryId)
+                {
+                    <option value="@C.Id" selected>@C.Name</option>
+                }
+                else
+                {
+                    <option value="@C.Id">@C.Name</option>
+                }
+            }
+        </select><br />
+        <input type="submit" value="Confirm" />
+    </form>
+</div>

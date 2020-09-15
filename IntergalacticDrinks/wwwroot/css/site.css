@@ -271,3 +271,59 @@ body {
 .rgb-animated-small:after {
     filter: blur(10px);
 }
+
+
+.list-inline {
+    overflow: hidden;
+    padding: 15px;
+    border-style: solid;
+    border-width: thin;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    vertical-align: central;
+    align-content: center;
+
+}
+
+.list-inline:hover {
+    box-shadow: #383333 5px 5px;
+    background-color: aqua;
+    color: black;
+}
+
+.list-inline h3 {
+    height: 100%;
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.list-inline p {
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    vertical-align: central;
+}
+
+.list-inline a {
+    height: 100%;
+    float: right;
+    margin-left: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
+.list-inline a:hover {
+    background-color: black;
+    color: white;
+}
+
+.solid-background {
+    background-color: white;
+}
+
+.money {
+
+}

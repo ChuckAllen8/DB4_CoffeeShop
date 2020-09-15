@@ -1,0 +1,44 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1>Administration</h1>
+
+<div class="solid-background">
+    <h1 class="text-center">@ViewData["Category"]</h1>
+    @foreach (Product p in Model)
+    {
+        <div>
+            <div class="list-inline" title="@p.ShortDescription" onclick="Expand(@p.Id)">
+                <h3>@p.Name </h3>
+                <h3>@($"{p.Price:c}")</h3>
+                <a class="btn" asp-action="Delete" asp-controller="Admin" asp-route-id="@p.Id">
+                    Delete
+                </a>
+                <a class="btn" asp-action="Modify" asp-controller="Admin" asp-route-id="@p.Id">
+                    Update
+                </a>
+            </div>
+            <div style="display:none" id="@p.Id">@p.LongDescription<br /><br /></div>
+        </div>
+    }
+    <div class="list-inline">
+        <h3>New Product</h3>
+        <a class="btn" asp-action="Modify" asp-controller="Admin" asp-route-id="-1">
+            Add
+        </a>
+    </div>
+</div>
+
+<script>
+    function Expand(id) {
+        var section = document.getElementById(id);
+        if (section.style.display === "none") {
+            section.style.display = "inherit";
+        }
+        else {
+            section.style.display = "none";
+        }
+    }
+</script>

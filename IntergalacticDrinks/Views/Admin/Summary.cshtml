@@ -1,0 +1,25 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Summary";
+}
+
+<h1>@(((bool)ViewData["Created"]) ? $"{Model.Name} Created" : $"{Model.Name} Updated")</h1>
+<h4>Name: </h4>
+<h5>@Model.Name</h5>
+<br />
+<h4>Category: </h4>
+<h5>@ViewData["Category"]</h5>
+<br />
+<h4>Short Description: </h4>
+<h5>@Model.ShortDescription</h5>
+<br />
+<h4>Full Description: </h4>
+<h5>@Model.LongDescription</h5>
+<br />
+<h4>Price:</h4>
+<h5>@($"{Model.Price:c}")</h5>
+<br />
+
+<a class="btn btn-dark" asp-action="Index" asp-controller="Admin">
+    Admin Menu
+</a>

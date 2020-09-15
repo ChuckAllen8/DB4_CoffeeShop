@@ -1,23 +1,32 @@
 ﻿@model AdminControlModel
 @{
-    ViewData["Title"] = "Modify";
+    string title;
+    if(Model.NewProduct)
+    {
+        title = "Add Product";
+    }
+    else
+    {
+        title = "Update Product";
+    }
+    ViewData["Title"] = title;
 }
 
-<h1>Modify</h1>
+<h1>@title</h1>
 <div class="half-of-screen">
     <form class="form-right-aligned" method="post" action="/Admin/Modify">
         <label for="id">Product Id</label>
-        <input type="number" id="id" name="id" readonly value="@Model.CurrentProduct?.Id" /><br />
+        <input class="curved-border text-indent" type="number" id="id" name="id" readonly value="@Model.CurrentProduct?.Id" /><br />
         <label for="name">Product Name</label>
-        <input type="text" id="name" name="name" value="@Model.CurrentProduct?.Name" required /><br />
+        <input class="curved-border text-indent" type="text" id="name" name="name" value="@Model.CurrentProduct?.Name" required /><br />
         <label for="shortDesc">Short Description</label>
-        <input type="text" id="shortDesc" name="shortDescription" value="@Model.CurrentProduct?.ShortDescription" required /><br />
+        <input class="curved-border text-indent" type="text" id="shortDesc" name="shortDescription" value="@Model.CurrentProduct?.ShortDescription" required /><br />
         <label for="fullDesc">Full Description</label>
-        <input type="text" id="fullDesc" name="longDescription" value="@Model.CurrentProduct?.LongDescription" required /><br />
+        <input class="curved-border text-indent" type="text" id="fullDesc" name="longDescription" value="@Model.CurrentProduct?.LongDescription" required /><br />
         <label for="price">Price</label>
-        <input class="money" type="number" data-type="currency" min="0.00" max="10000.00" id="price" step=".01" name="price" value="@Model.CurrentProduct?.Price" required /><br />
+        <input class="curved-border text-indent" type="number" data-type="currency" min="0.00" max="10000.00" id="price" step=".01" name="price" value="@Model.CurrentProduct?.Price" required /><br />
         <label for="Category">Category</label>
-        <select name="Category" id="Category">
+        <select class="curved-border text-indent" name="Category" id="Category">
             @foreach (Category C in Model.AvailableCategories)
             {
                 if (!(Model.CurrentProduct is null) && C.Id == Model.CurrentProduct?.CategoryId)

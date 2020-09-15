@@ -315,15 +315,21 @@ body {
     color: black;
 }
 
-.list-inline a:hover {
-    background-color: black;
-    color: white;
-}
-
 .solid-background {
     background-color: white;
 }
 
-.money {
+.primary-color-hover:hover {
+    background-color: black;
+    color: white;
+}
 
+.secondary-color-hover:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.warning-color-hover:hover {
+    background-color: red;
+    color: white;
 }

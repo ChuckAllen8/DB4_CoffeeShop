@@ -129,3 +129,15 @@ function checkForm(form) {
 //
 //end validation code
 //
+
+
+//code for miscellaneous functions
+function Expand(id) {
+    var section = document.getElementById(id);
+    if (section.style.display === "none") {
+        section.style.display = "inherit";
+    }
+    else {
+        section.style.display = "none";
+    }
+}

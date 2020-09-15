@@ -7,6 +7,12 @@
 
 <div class="solid-background">
     <h1 class="text-center">@ViewData["Category"]</h1>
+    <div class="list-inline">
+        <h3>New Product</h3>
+        <a class="btn secondary-color-hover" asp-action="Modify" asp-controller="Admin" asp-route-id="-1">
+            Add
+        </a>
+    </div>
     @foreach (Product p in Model)
     {
         <div>
@@ -23,10 +29,4 @@
             <div style="display:none" id="@p.Id">@p.LongDescription<br /><br /></div>
         </div>
     }
-    <div class="list-inline">
-        <h3>New Product</h3>
-        <a class="btn secondary-color-hover" asp-action="Modify" asp-controller="Admin" asp-route-id="-1">
-            Add
-        </a>
-    </div>
 </div>

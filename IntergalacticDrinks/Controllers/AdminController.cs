@@ -11,6 +11,7 @@ namespace IntergalacticDrinks.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Admin"] = "active";
             return View(DataAccessModel.GetAllProducts());
         }
 
